@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overall + Weekly Attendance Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Overall + Weekly Attendance Calculator</h2>
+
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>Roll No.</th>
+                <th>Student Name</th>
+
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+
+                <th>Total Present Days</th>
+                <th>Total College Days</th>
+
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody id="inputBody">
+            <tr>
+                <td><input type="number" placeholder="Roll No."></td>
+                <td><input type="text" placeholder="Student Name"></td>
+
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+
+                <td><input type="number" placeholder="Present"></td>
+                <td><input type="number" placeholder="Total"></td>
+
+                <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="controls">
+        <button class="btn" onclick="addStudent()">Add Student</button>
+        <button class="btn" onclick="calculateAttendance()">Calculate</button>
+    </div>
+
+    <h3>Attendance Summary</h3>
+
+    <div class="controls">
+        <button class="btn" onclick="printResult()">Print Result</button>
+        <button class="btn" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <table id="resultTable" class="hidden">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Weekly Present</th>
+                <th>Weekly %</th>
+                <th>Overall Present</th>
+                <th>Total Days</th>
+                <th>Overall %</th>
+            </tr>
+        </thead>
+
+        <tbody id="resultBody"></tbody>
+    </table>
+
+    <!-- Error Popup -->
+    <div id="errorPopup" class="error-popup hidden">
+        <p id="errorMessage"></p>
+    </div>
+
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
